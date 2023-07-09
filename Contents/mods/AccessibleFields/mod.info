@@ -1,0 +1,8 @@
+name=Accessible Fields
+id=00AccessibleFields
+description=Makes fields easily accessible to modders with intuitive syntax. This should ideally be as early in your load order as possible.
+authors=albion
+versionMin=41.78.16
+modversion=1.0.0
+url=https://github.com/demiurgeQuantified/AccessibleFields
+poster=poster.png

@@ -1,0 +1,8 @@
+version=1
+title=Accessible Fields
+description=[b]AccessibleFields is a library for other mods to use, it doesn't do anything on its own. As an end user, you don't have any reason to install this unless a mod you use requires it.[/h2][/b]
+description=[h1]This should be as early in your load order as possible.[/h1]
+description=Modifies the class metatables to allow fields to be accessed with the intuitive object.field syntax we're all used to. While fields can be accessed without this script, the syntax is extremely cumbersome and unnatural.
+description=[url=https://github.com/demiurgeQuantified/AccessibleFields]View on GitHub[/url]
+tags=Build 41;Framework;Misc
+visibility=public
