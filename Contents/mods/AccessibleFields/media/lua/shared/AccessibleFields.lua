@@ -1,3 +1,14 @@
+-- cancel execution if Starlit Library is enabled, as it replaces this mod
+-- if your mod still depends on Accessible Fields, consider replacing that dependency with Starlit Library
+-- you don't need to make any code changes whatsoever, just change the required mod id and workshop page requirement
+-- if you had to require this file for load order reasons, require Starlit/utils/Reflection instead
+-- requiring it could also now be unnecessary as Starlit manages load order better
+if getActivatedMods():contains("StarlitLibrary") then
+    -- require starlit's equivalent so that files that needed to require this file for load order reasons will still work
+    require("Starlit/utils/Reflection")
+    return
+end
+
 local getNumClassFields = getNumClassFields
 local getClassField = getClassField
 local getClassFieldVal = getClassFieldVal
@@ -28,14 +39,14 @@ addClassesRecurse(zombie)
 for i = 1, #classtables do
     local classtable = classtables[i]
     local metatable = {}
-    
+
     local getField = function(self, key)
         local fieldGetter = metatable.fieldGetters[key]
         if fieldGetter then
             return fieldGetter(self)
         end
     end
-    
+
     metatable.__index = function(self, key)
         local fieldGetters = {}
         for i = 0, getNumClassFields(self)-1 do
@@ -47,6 +58,6 @@ for i = 1, #classtables do
         metatable.__index = getField
         return self[key]
     end
-    
+
     setmetatable(classtable, metatable)
 end
